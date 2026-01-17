@@ -13,3 +13,4 @@ bob.jar
 *.interp
 *.tokens
 *.class
+/.editor_settings

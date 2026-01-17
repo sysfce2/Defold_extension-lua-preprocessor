@@ -1,16 +1,25 @@
 local test = require("main.test")
 
 function init(self)
-	--#IF DEBUG 
-label.set_text("#label", "Debug")
-	--#ELSE
-label.set_text("#label", "Release")
-	--#ENDIF
+--#IF DEBUG 
+	print("debug")
+	label.set_text("#label", "Debug")
+--#ELSE
+	print("release")
+	label.set_text("#label", "Release")
+--#ENDIF
 	test.greet("Bob")
 
+	
 --#IF HEADLESS 
 	print("HEADLESS ")
 	label.set_text("#label", "HEADLESS")
 --#ENDIF
+
+
+--DEBUG_ASSERT(is)
+timer.delay(0.1, false, function()
+	label.set_text("#label", label.get_text("#label").." - no assert")
+end)
 
 end

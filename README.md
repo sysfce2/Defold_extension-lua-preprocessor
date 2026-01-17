@@ -20,5 +20,11 @@ local lives_num = 999
 local lives_num = 3
 --#ENDIF
 ```
+
+You can also use `--DEBUG_ASSERT(...)` to include asserts only in debug builds:
+
+```lua
+--DEBUG_ASSERT(player_lives > 0)
+```
 ---
 If you have any issues, questions or suggestions please [create an issue](https://github.com/defold/extension-lua-preprocessor/issues)

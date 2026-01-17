@@ -46,6 +46,23 @@ public class LuaPreprocessor implements ILuaPreprocessor {
         }
     }
 
+    private static void replaceToken(Token token, String replacement) {
+        LuaPreprocessor.hasChanges = true;
+        int from = token.getStartIndex();
+        int length = token.getText().length();
+        logger.fine("replaceToken " + token.getText());
+        StringBuilder padded = new StringBuilder(length);
+        if (replacement.length() >= length) {
+            padded.append(replacement, 0, length);
+        } else {
+            padded.append(replacement);
+            for (int i = replacement.length(); i < length; i++) {
+                padded.append(' ');
+            }
+        }
+        parsedBuffer.replace(from, from + length, padded.toString());
+    }
+
     private static void setBuildVariant(String variant) {
         switch (variant)
         {
@@ -121,6 +138,17 @@ public class LuaPreprocessor implements ILuaPreprocessor {
         @Override
         public void enterEndif(LuaPreProcParser.EndifContext ctx) {
             isInRemovingMode = false;
+        }
+
+        @Override
+        public void enterDebugAssertLine(LuaPreProcParser.DebugAssertLineContext ctx) {
+            Token debugToken = ctx.DEBUG_ASSERT_LINE().getSymbol();
+            if (isInRemovingMode) {
+                LuaPreprocessor.removeToken(debugToken);
+            } else if (currentBuildVariant == LuaPreProcParser.PP_PARAM_DEBUG) {
+                String replacement = debugToken.getText().replace("--DEBUG_ASSERT(", "assert(");
+                LuaPreprocessor.replaceToken(debugToken, replacement);
+            }
         }
 
         @Override

@@ -20,5 +20,6 @@ PP_WS    			: [ \t]+        -> channel(HIDDEN) ;
 
 mode LineMode ;
 
+DEBUG_ASSERT_LINE : [ \t]* '--DEBUG_ASSERT(' ~[\r\n]* ;
 TEXT     : ~[\r\n]+ ;
 EOL      : '\r'? '\n'    -> popMode ;
