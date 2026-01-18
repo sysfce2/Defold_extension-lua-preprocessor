@@ -11,4 +11,5 @@ ifdef    : PP_IFDEF param PP_EOL ;
 elsedef  : PP_ELSE  PP_EOL ;
 endif    : PP_ENDIF PP_EOL? ;
 
-line     : TEXT (PP_EOL | EOL | EOF?) ;
+debugAssertLine : DEBUG_ASSERT_LINE ;
+line     : (debugAssertLine | TEXT) (PP_EOL | EOL | EOF?) ;

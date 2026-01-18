@@ -1,4 +1,4 @@
-// Generated from LuaPreProc.g4 by ANTLR 4.9.1
+// Generated from lua-preprocessor/pluginsrc/com/defold/extension/pipeline/antlr/LuaPreProc.g4 by ANTLR 4.9.3
 package com.dynamo.bob.pipeline.antlr;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -83,6 +83,18 @@ public class LuaPreProcBaseListener implements LuaPreProcListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitEndif(LuaPreProcParser.EndifContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDebugAssertLine(LuaPreProcParser.DebugAssertLineContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDebugAssertLine(LuaPreProcParser.DebugAssertLineContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

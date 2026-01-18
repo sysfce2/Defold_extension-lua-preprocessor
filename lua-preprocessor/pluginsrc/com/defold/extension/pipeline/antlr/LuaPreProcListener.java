@@ -1,4 +1,4 @@
-// Generated from LuaPreProc.g4 by ANTLR 4.9.1
+// Generated from lua-preprocessor/pluginsrc/com/defold/extension/pipeline/antlr/LuaPreProc.g4 by ANTLR 4.9.3
 package com.dynamo.bob.pipeline.antlr;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -67,6 +67,16 @@ public interface LuaPreProcListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitEndif(LuaPreProcParser.EndifContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link LuaPreProcParser#debugAssertLine}.
+	 * @param ctx the parse tree
+	 */
+	void enterDebugAssertLine(LuaPreProcParser.DebugAssertLineContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link LuaPreProcParser#debugAssertLine}.
+	 * @param ctx the parse tree
+	 */
+	void exitDebugAssertLine(LuaPreProcParser.DebugAssertLineContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link LuaPreProcParser#line}.
 	 * @param ctx the parse tree

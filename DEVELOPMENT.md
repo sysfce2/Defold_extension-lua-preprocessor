@@ -4,7 +4,15 @@ This extension uses [ANTLR](https://www.antlr.org).
 
 All `*.java` files in `lua-preprocessor/pluginsrc/com/dynamo/bob/pipeline/antlr` are generated from the gramma files `*.g4` in the same folder using ANTLR.
 
-0. Make sure you have Java installed
+## Quick update workflow
+
+0. Make sure you have Java installed.
+1. Run `./scripts/syntax_update.sh` to generate new Java classes from the syntax.
+2. Download `bob.jar` into the project root.
+3. Run `./scripts/build_plugin.sh` to update the plugin.
+
+## Full instruction
+
 1. Download [https://www.antlr.org/download/antlr-4.9.3-complete.jar](https://www.antlr.org/download/antlr-4.9.3-complete.jar)
 2. Run:
 
